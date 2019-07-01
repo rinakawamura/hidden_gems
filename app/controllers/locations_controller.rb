@@ -6,12 +6,12 @@ class LocationsController < ApplicationController
     def show
         set_location
     end
-    
+
     def new
         @location = Location.new
     end
 
-    def create 
+    def create
         @location = Location.create(location_params)
         if @location.valid?
             # Possibly create separate join model to keep track of location added by logged in user
@@ -23,7 +23,7 @@ class LocationsController < ApplicationController
         end
     end
 
-    private 
+    private
 
     def set_location
         @location = Location.find(params[:id])
