@@ -22,15 +22,15 @@ class UsersController < ApplicationController
   end
 
   def show
-    @user = User.find(params[:id])
+    set_user
   end
 
   def edit
-    @user = User.finf(params[:id])
+    set_user
   end
 
   def update
-    @user = User.find(param[:id])
+    set_user
     @user.update(user_params)
     if @user.valid?
       redirect_to user_path(@user)
@@ -42,6 +42,10 @@ class UsersController < ApplicationController
 
 
   private
+
+  def set_user
+    @user = User.find(params[:id])
+  end
 
   def user_params
     params.require(:user).permit(:first_name, :last_name, :email, :country_id, :password, :password_confirmation)
