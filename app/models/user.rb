@@ -9,6 +9,7 @@ class User < ApplicationRecord
             loc.user_id == self.id
         end
     end
+
   def full_name
     [first_name, last_name].reject(&:blank?).join(' ').titleize
   end

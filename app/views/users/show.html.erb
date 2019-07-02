@@ -11,7 +11,7 @@
 <%= form_for @visit do |f| %>
 <%= f.collection_select :location_id, Location.all, :id, :name %>
 <%= f.hidden_field :user_id, value: @user.id %>
-<%= f.date_select :date %>
+<%= f.date_select :visit_date %>
 <%= f.submit "Add Location" %>
 <% end %>
 

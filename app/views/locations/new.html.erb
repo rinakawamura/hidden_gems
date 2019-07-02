@@ -1,5 +1,14 @@
 <h1>Introduce a Hidden Gem!</h1>
 
+<% if flash.now[:error] %>
+    <h3> Errors: </h3>
+    <ul>
+    <% flash.now[:error].each do |err| %>
+        <%= err %><br>
+    <% end %>
+    </ul>
+<% end %>
+
 <%= form_for @location do |f| %>
     <%= f.label :name %>
     <%= f.text_field :name %>
@@ -9,6 +18,7 @@
     <br><br>
     <%= f.label :country %>
     <%= f.collection_select :country_id, Country.all, :id, :name %>
+    <%= f.hidden_field :user_id, value: current_user %>
     <br><br>
     <%= f.submit %>
 <% end %>

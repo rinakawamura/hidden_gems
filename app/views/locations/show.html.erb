@@ -3,3 +3,6 @@
 <p><%= @location.description %></p>
 <br>
 <h4>Favorites: <%= @location.favorites %></h4> 
+<br>
+<br>
+<h4>Hidden Gem Added By <%= link_to @location.owner.full_name, user_path(@location.owner) %></h4>
