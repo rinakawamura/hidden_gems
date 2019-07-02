@@ -1,4 +1,6 @@
 class LocationsController < ApplicationController
+    before_action :authorized, only: [:new, :create]
+    
     def index
         @locations = Location.all
     end

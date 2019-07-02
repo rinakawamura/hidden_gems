@@ -1,6 +1,8 @@
-<h1>Locations</h1>
+<h1>Hidden Gems</h1>
 <ul>
 <% @locations.each do |loc| %>
     <li><%= link_to loc.name, location_path(loc) %></li>
 <% end %>
 </ul>
+
+<%= button_to "Add Hidden Gem", new_location_path, method: :get %>

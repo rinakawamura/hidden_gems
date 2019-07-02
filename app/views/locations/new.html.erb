@@ -1,9 +1,4 @@
 <h1>Introduce a Hidden Gem!</h1>
-<% if flash.now[:error] %>
-  <% flash.now[:error].each do |error_msg| %>
-    <li><%= error_msg %></li>
-  <% end %><br>
-<% end %>
 
 <% if flash.now[:error] %>
     <h3> Errors: </h3>
@@ -14,16 +9,18 @@
     </ul>
 <% end %>
 
-<%= form_for @location do |f| %>
-    <%= f.label :name %>
-    <%= f.text_field :name %>
-    <br><br>
-    <%= f.label "Description (Max. 50 words)" %>
-    <%= f.text_area :description %>
-    <br><br>
-    <%= f.label :country %>
-    <%= f.collection_select :country_id, Country.all, :id, :name %>
-    <%= f.hidden_field :user_id, value: current_user %>
-    <br><br>
-    <%= f.submit %>
+<% if session[:user_id] %>
+    <%= form_for @location do |f| %>
+        <%= f.label :name %>
+        <%= f.text_field :name %>
+        <br><br>
+        <%= f.label :description %> (Max. 50 words) <br>
+        <%= f.text_area :description %>
+        <br><br>
+        <%= f.label :country %>
+        <%= f.collection_select :country_id, Country.all, :id, :name %>
+        <%= f.hidden_field :user_id, value: session[:user_id] %>
+        <br><br>
+        <%= f.submit %>
+    <% end %>
 <% end %>
