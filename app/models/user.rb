@@ -9,11 +9,9 @@ class User < ApplicationRecord
             loc.user_id == self.id
         end
     end
-  def full_name
-    [first_name, last_name].reject(&:blank?).join(' ').titleize
-  end
 
-  def find_visit(location)
-    Visit.find_by(user: self, location: location)
-  end
+    def full_name
+      [first_name, last_name].reject(&:blank?).join(' ').titleize
+    end
+
 end
