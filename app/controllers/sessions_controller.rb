@@ -8,6 +8,7 @@ class SessionsController < ApplicationController
       session[:user_id] = user.id
       redirect_to user_path(user)
     else
+      flash.now[:error] = user.errors.full_messages
       render :new
     end
   end
