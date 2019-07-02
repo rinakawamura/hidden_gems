@@ -18,9 +18,6 @@ class VisitsController < ApplicationController
 
   private
 
-  # def date_params
-  #   params.require(:visit).permit("visit_date(1i)".to_i, "visit_date(2i)".to_i, "visit_date(3i)".to_i)
-  # end
 
   def visit_params
     params.require(:visit).permit(:user_id, :location_id, :visit_date)
