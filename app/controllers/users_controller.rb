@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
-  before_action :authorized
-  skip_before_action :authorized, only: [:index, :new, :create]
+  before_action :authorized, only: [:show]
+  # skip_before_action :authorized, only: [:index, :new, :create]
 
   def index
     @users = User.all
@@ -23,6 +23,7 @@ class UsersController < ApplicationController
 
   def show
     set_user
+    @visit = Visit.new
   end
 
   def edit
