@@ -1,7 +1,8 @@
 class VisitsController < ApplicationController
   def create
+    # bycohnebug
     @visit = Visit.find_or_create_by(visit_params)
-    redirect_to user_path(params[:user_id])
+    redirect_to user_path(@visit.user)
   end
 
   private
