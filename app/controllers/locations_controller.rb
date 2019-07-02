@@ -1,5 +1,5 @@
 class LocationsController < ApplicationController
-    before_action :authorized, only: [:new, :create]
+    before_action :authorized, only: [:new, :create, :edit, :update]
     
     def index
         @locations = Location.all
@@ -15,6 +15,21 @@ class LocationsController < ApplicationController
 
     def create
         @location = Location.create(location_params)
+        if @location.valid?
+            redirect_to location_path(@location)
+        else
+            flash.now[:error] = @location.errors.full_messages
+            render :new
+        end
+    end
+
+    def edit
+        set_location
+    end
+
+    def update
+        set_location
+        @location.update(location_params)
         if @location.valid?
             redirect_to location_path(@location)
         else

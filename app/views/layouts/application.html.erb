@@ -10,6 +10,23 @@
   </head>
 
   <body>
+
+    <div id = "nav-bar">
+      <li><%= link_to "Hidden Gem List", locations_path %></li>
+    </div>
+  <br><br>
+    <div id="login">
+      <% if session[:user_id] %>
+        Hi <%= User.find(session[:user_id]).full_name %>
+        <li><%= link_to "My Page", "/users/#{session[:user_id]}" %></li>
+        <li><%= link_to "Log Out", "/logout", method: :delete %></li>
+      <% else %>
+        <li><%= link_to "Log In", "/login", method: :get %></li>
+        Don't Have an Account? <%= link_to "Register", "/signup", method: :get %>
+      <% end %>
+    </div>
+    <hr>
+
     <%= yield %>
   </body>
 </html>

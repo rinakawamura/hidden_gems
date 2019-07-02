@@ -2,7 +2,11 @@ class UsersController < ApplicationController
   before_action :authorized, only: [:show, :edit, :update]
 
   def index
-    @users = User.all
+    if params[:q] 
+      @user = User.find_by(email: params[:q])
+    else
+      @user = nil
+    end
   end
 
   def new

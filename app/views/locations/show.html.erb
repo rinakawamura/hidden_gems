@@ -6,3 +6,6 @@
 <br>
 <br>
 <h4>Hidden Gem Added By <%= link_to @location.owner.full_name, user_path(@location.owner) %></h4>
+<% if session[:user_id] == @location.owner.id %>
+    <%= button_to "Edit Hidden Gem", edit_location_path, method: :get %>
+<% end %>

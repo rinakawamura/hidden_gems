@@ -1,11 +1,18 @@
-<h1><%= @user.full_name %></h1>
+<% if session[:user_id] == @user.id %>
+  <h1> My Page </h1>
+<% else %>
+  <h1><%= @user.full_name %></h1>
+<% end %>
+
 <br>
 <h2>Hidden Gems Visited:</h2>
 <ul>
   <% @user.visits.each do |visit| %>
   <li><%= link_to visit.location.name, location_path(visit.location) %> (<%= visit.visit_date %>)</li>
-  <%= form_for visit, :method => :delete do |f| %>
-  <%= f.submit "Remove Visit" %>
+    <% if session[:user_id] == @user.id %>
+      <%= form_for visit, :method => :delete do |f| %>
+      <%= f.submit "Remove Visit" %>
+      <% end %>
     <% end %>
   <% end %>
 </ul>
