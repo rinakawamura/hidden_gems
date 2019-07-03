@@ -2,7 +2,16 @@
 <h2>Country: <%= @location.country.name%></h2>
 <p><%= @location.description %></p>
 <br>
-<h4>Favorites: <%= @location.favorites %></h4> 
+<h4>Favorites: <%= @location.fav_users.count %></h4> 
+
+<% if session[:user_id] %>
+    <% if @location.favorite?(session[:user_id]) %>
+        <%= button_to "Unfavorite", "/favorites/destroy/#{session[:user_id]}/#{@location.id}", method: :delete %>
+    <% else %>
+        <%= button_to "Favorite", "/favorites/new/#{session[:user_id]}/#{@location.id}", method: :get %>
+    <% end %>
+<% end %>
+    
 <br>
 <br>
 <h4>Hidden Gem Added By <%= link_to @location.owner.full_name, user_path(@location.owner) %></h4>

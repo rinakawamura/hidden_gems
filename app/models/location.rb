@@ -10,13 +10,11 @@ class Location < ApplicationRecord
         User.all.find(self.user_id)
     end
 
-<<<<<<< HEAD
     # def top_five_locations
     #   self.users.sort_by do |user|
     #     self.users.count(user.id)
     #   end.uniq[0..5]
     # end
-=======
     def fav_users
         Favorite.all.select do |fav|
             fav.location == self
@@ -24,5 +22,8 @@ class Location < ApplicationRecord
             User.find(fav.user_id).full_name
         end
     end
->>>>>>> users
+
+    def favorite?(user_id)
+        Favorite.find_by(user_id: user_id, location: self)
+    end
 end
