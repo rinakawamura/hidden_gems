@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_07_03_143311) do
+ActiveRecord::Schema.define(version: 2019_07_03_145213) do
 
   create_table "countries", force: :cascade do |t|
     t.string "name"
@@ -29,7 +29,6 @@ ActiveRecord::Schema.define(version: 2019_07_03_143311) do
     t.string "name"
     t.integer "country_id"
     t.text "description"
-    t.integer "favorites", default: 0
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "user_id"
