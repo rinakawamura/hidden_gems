@@ -2,7 +2,7 @@ class UsersController < ApplicationController
   before_action :authorized, only: [:show, :edit, :update]
 
   def index
-    if params[:q] 
+    if params[:q]
       @user = User.find_by(email: params[:q])
     else
       @user = nil
@@ -15,7 +15,6 @@ class UsersController < ApplicationController
 
   def create
     @user = User.new(user_params)
-    byebug
     if @user.valid?
       @user.save
       session[:user_id] = @user.id

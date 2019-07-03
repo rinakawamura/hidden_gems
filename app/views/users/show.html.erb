@@ -26,8 +26,17 @@
     <%= f.submit "Add Visit" %>
   <% end %>
 <% end %>
+
 <br>
-<h2>Hidden Gems Added:</h2>
+<h2>My Favorite Hidden Gems:</h2>
+<ul>
+  <% @user.fav_locations.each do |fav_location| %>
+    <li><%= link_to fav_location.name, location_path(fav_location) %></li>
+  <% end %>
+</ul>
+<br>
+
+<h2>Add a Gem:</h2>
 <ul>
   <% @user.added_locations.each do |location| %>
   <li><%= link_to location.name, location_path(location) %></li>
