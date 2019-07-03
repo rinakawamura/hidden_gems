@@ -1,9 +1,6 @@
 <h1>Welcome to Hidden Gems</h1>
-<<<<<<< HEAD
 
-<%# <p><h2>Most Popular Locations</h2></p>
-<% @locations.top_five_locations.each do |t| %>
-<%# <%= t.name %>
-<%# <% end %>
-=======
->>>>>>> users
+<h2>Most Popular Locations</h2>
+<% Location.top_five_locations.each do |t| %>
+    <li><%= link_to t.name, location_path(t) %></li>
+<% end %>

@@ -3,6 +3,9 @@ Rails.application.routes.draw do
   resources :visits
   resources :locations
   resources :users
+  resources :pages
+
+  root :to => "pages#index"
 
   get '/signup', to: 'users#new'
   get '/login', to: 'sessions#new'
