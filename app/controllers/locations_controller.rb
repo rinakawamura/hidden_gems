@@ -1,4 +1,6 @@
 class LocationsController < ApplicationController
+    before_action :authorized, only: [:new, :create, :edit, :update]
+    
     def index
         @locations = Location.all
     end
@@ -14,11 +16,24 @@ class LocationsController < ApplicationController
     def create
         @location = Location.create(location_params)
         if @location.valid?
-            # Possibly create separate join model to keep track of location added by logged in user
-            # AddedLocation.create(user_id: user_id, location_id: @location.id)
             redirect_to location_path(@location)
         else
-            flash[:error] = @location.errors.full_messages
+            flash.now[:error] = @location.errors.full_messages
+            render :new
+        end
+    end
+
+    def edit
+        set_location
+    end
+
+    def update
+        set_location
+        @location.update(location_params)
+        if @location.valid?
+            redirect_to location_path(@location)
+        else
+            flash.now[:error] = @location.errors.full_messages
             render :new
         end
     end
@@ -30,6 +45,6 @@ class LocationsController < ApplicationController
     end
 
     def location_params
-        params.require(:location).permit(:name, :description, :country_id)
+        params.require(:location).permit(:name, :description, :country_id, :user_id)
     end
 end

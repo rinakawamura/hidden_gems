@@ -1,9 +1,12 @@
 class UsersController < ApplicationController
-  before_action :authorized, only: [:show]
-  # skip_before_action :authorized, only: [:index, :new, :create]
+  before_action :authorized, only: [:show, :edit, :update]
 
   def index
-    @users = User.all
+    if params[:q] 
+      @user = User.find_by(email: params[:q])
+    else
+      @user = nil
+    end
   end
 
   def new
@@ -11,16 +14,13 @@ class UsersController < ApplicationController
   end
 
   def create
-    # byebug
     @user = User.new(user_params)
     byebug
     if @user.valid?
-      # byebug
       @user.save
       session[:user_id] = @user.id
       redirect_to user_path(@user)
     else
-      # byebug
       flash.now[:error] = @user.errors.full_messages
       render :new
     end

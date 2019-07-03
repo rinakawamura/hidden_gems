@@ -27,14 +27,14 @@ loc5 = Location.create(name: "This Bridge", country_id: vietnam.id, description:
 
 # Visits
 visit1 = Visit.create(user: user1, location: loc1, visit_date: "Dec 19 2000")
-visit2 = Visit.create(user: user1, location: loc1, visit_date: "Jan 1 2002")
-visit3 = Visit.create(user: user1, location: loc1, visit_date: "Jan 6 1980")
+visit2 = Visit.create(user: user2, location: loc2, visit_date: "Jan 1 2002")
+visit3 = Visit.create(user: user4, location: loc4, visit_date: "Jan 6 1980")
 visit4 = Visit.create(user: user1, location: loc1, visit_date: "May 19 2001")
-visit5 = Visit.create(user: user1, location: loc1, visit_date: "Aug 6 2019")
-visit6 = Visit.create(user: user1, location: loc1, visit_date: "July 9 2000")
-visit7 = Visit.create(user: user1, location: loc1, visit_date: "Dec 1 2000")
-visit8 = Visit.create(user: user1, location: loc1, visit_date: "Dec 4 2030")
-visit9 = Visit.create(user: user1, location: loc1, visit_date: "Dec 19 2000")
-visit10 = Visit.create(user: user1, location: loc1, visit_date: "Apr 19 2000")
-visit11 = Visit.create(user: user1, location: loc1, visit_date: "May 19 2000")
+visit5 = Visit.create(user: user1, location: loc5, visit_date: "Aug 6 2019")
+visit6 = Visit.create(user: user2, location: loc5, visit_date: "July 9 2000")
+visit7 = Visit.create(user: user3, location: loc2, visit_date: "Dec 1 2000")
+visit8 = Visit.create(user: user3, location: loc1, visit_date: "Dec 4 2030")
+visit9 = Visit.create(user: user5, location: loc5, visit_date: "Dec 19 2000")
+visit10 = Visit.create(user: user5, location: loc3, visit_date: "Apr 19 2000")
+visit11 = Visit.create(user: user2, location: loc1, visit_date: "May 19 2000")
 
