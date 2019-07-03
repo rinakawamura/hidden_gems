@@ -1,7 +1,11 @@
+
+
 *{
     margin: 0;
     padding: 10;
     box-sizing: border-box;
+    font-family: "Optima";
+
 }
 
 /* .nav-bar {
@@ -17,9 +21,8 @@
     color: white;
     height: 60px;
     text-decoration: none;
-    font-size: 25px;
-    font-family: candara;
     font-weight: bold;
+    font-size: 25px;
 }
 
 .nav-bar a:hover{
