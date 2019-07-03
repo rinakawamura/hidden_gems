@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   resources :pages
 
   root :to => "pages#index"
+  get '/about', to: 'pages#about'
 
   get '/signup', to: 'users#new'
   get '/login', to: 'sessions#new'
