@@ -1,5 +1,6 @@
 <link rel="stylesheet" href="application.css">
 
+<<<<<<< HEAD
 
 
 <div class="page-wrap">
@@ -11,3 +12,12 @@
       <div><%= link_to t.name, location_path(t) %></div>
   <% end %>
 </div>
+=======
+<h2>Most Popular Locations</h2>
+<% Location.top_five_locations.each do |t| %>
+    <div class="home-locations">
+        <%= link_to t.name, location_path(t) %>
+        <img src=<%=t.image_url%> >
+    </div>
+<% end %>
+>>>>>>> 4d5e7d6884c8ce8e5cfb18cc65275dc0a6063a9d
