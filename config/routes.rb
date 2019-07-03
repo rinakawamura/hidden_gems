@@ -9,5 +9,5 @@ Rails.application.routes.draw do
   get '/home', to: 'pages#index'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   delete "/logout", to: "sessions#destroy"
-
+  
 end
