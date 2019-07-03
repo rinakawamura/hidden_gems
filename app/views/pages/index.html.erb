@@ -1,6 +1,13 @@
-<h1>Welcome to Hidden Gems</h1>
+<link rel="stylesheet" href="application.css">
 
-<h2>Most Popular Locations</h2>
-<% Location.top_five_locations.each do |t| %>
-    <li><%= link_to t.name, location_path(t) %></li>
-<% end %>
+
+
+<div class="page-wrap">
+
+  <h1>Hidden Gems</h1>
+  <h2>Most Popular Locations</h2>
+
+  <% Location.top_five_locations.each do |t| %>
+      <div><%= link_to t.name, location_path(t) %></div>
+  <% end %>
+</div>
