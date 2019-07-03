@@ -12,6 +12,10 @@ class User < ApplicationRecord
         end
     end
 
+<<<<<<< HEAD
+    def full_name
+      [first_name, last_name].reject(&:blank?).join(' ').titleize
+=======
   def full_name
     [first_name, last_name].reject(&:blank?).join(' ').titleize
   end
@@ -21,6 +25,7 @@ class User < ApplicationRecord
         fav.user == self
     end.map do |fav|
         Location.find(fav.location_id)
+>>>>>>> df156801211761922b29e2cf1127ec78a5f7c903
     end
   end
 

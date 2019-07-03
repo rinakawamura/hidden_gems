@@ -32,6 +32,7 @@ ActiveRecord::Schema.define(version: 2019_07_03_145213) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "user_id"
+    t.string "image_url"
   end
 
   create_table "users", force: :cascade do |t|
