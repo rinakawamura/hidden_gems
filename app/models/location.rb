@@ -9,4 +9,12 @@ class Location < ApplicationRecord
     def owner 
         User.all.find(self.user_id)
     end
+
+    def fav_users
+        Favorite.all.select do |fav|
+            fav.location == self
+        end.map do |fav|
+            User.find(fav.user_id).full_name
+        end
+    end
 end
