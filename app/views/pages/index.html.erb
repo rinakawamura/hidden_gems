@@ -1,23 +1,13 @@
-<link rel="stylesheet" href="application.css">
-
-<<<<<<< HEAD
-
+<header class="main-header role="banner">
+  <%= image_tag("banner1.jpg", class:"banner-image") %>
+  <h1 class="text">
+    <span class="logo"><b>Hidden Gems</b></span>
+  </h1>
+</header>
 
 <div class="page-wrap">
-
-  <h1>Hidden Gems</h1>
   <h2>Most Popular Locations</h2>
-
-  <% Location.top_five_locations.each do |t| %>
+    <% Location.top_five_locations.each do |t| %>
       <div><%= link_to t.name, location_path(t) %></div>
-  <% end %>
+    <% end %>
 </div>
-=======
-<h2>Most Popular Locations</h2>
-<% Location.top_five_locations.each do |t| %>
-    <div class="home-locations">
-        <%= link_to t.name, location_path(t) %>
-        <img src=<%=t.image_url%> >
-    </div>
-<% end %>
->>>>>>> 4d5e7d6884c8ce8e5cfb18cc65275dc0a6063a9d
