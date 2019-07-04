@@ -10,10 +10,23 @@
 </div>
 <br>
 <br>
+
+
 <div class="page-wrap">
-  <h2>Most Popular Locations</h2>
-    <% Location.top_five_locations.each do |t| %>
-      <div><%= link_to t.name, location_path(t) %></div>
-      <img src= <%= t.image_url %>>
-    <% end %>
+  <div class="container-text">
+      <h1>Want a little taste?</h1>
+      <h1>Here are some of our users' favorite hidden gems!</h1>
+  </div>
+  <br>
+
+
+      <% Location.top_five_locations.each do |t| %>
+      <div class="fav-locations">
+        <img src= <%= t.image_url %>>
+        <div class="middle">
+          <div class="text"><%= link_to t.name, location_path(t) %></div>
+        </div>
+      </div>
+      <% end %>
+    </div>
 </div>
