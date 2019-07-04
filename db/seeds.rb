@@ -20,11 +20,11 @@ user5 = User.create(first_name: "Faith", last_name: "Chen", country_id: mongolia
 
 
 # Locations
-loc1 = Location.create(name: "Shakespear and Company", country_id: france.id, description: "The perfect bookstore and cafe to enjoy a good cup of coffee. ", user_id: user2.id, image_url: "http://images.faena.com/wp-content/uploads/sites/4/2017/08/shakespeare-and-co.jpg?_ga=2.135089393.1500810842.1562253848-215521494.1562253848")
+loc1 = Location.create(name: "Shakespeare and Company", country_id: france.id, description: "The perfect bookstore and cafe to enjoy a good cup of coffee. ", user_id: user2.id, image_url: "https://s26162.pcdn.co/wp-content/uploads/2015/11/shake-and-co.jpg")
 loc2 = Location.create(name: "Holybelly", country_id: france.id, description: "A must-vist cafe in Paris for brunch.", user_id: user1.id, image_url: "https://www.jeffontheroad.com/wp-content/uploads/2016/06/dezjeff-paris-dejeuner-holybelly-7.jpg")
-loc3 = Location.create(name: "Burgermeister", country_id: germany.id, description: "Berlin's favorite local burger joint.", user_id: user3.id, image_url: "https://dynaimage.cdn.cnn.com/cnn/q_auto,w_496,c_fill,g_auto,h_279,ar_16:9/http%3A%2F%2Fcdn.cnn.com%2Fcnnnext%2Fdam%2Fassets%2F180718111756-05-berlin-restaurants---burgermeister-schlesisches-tor.jpg")
+loc3 = Location.create(name: "Burgermeister", country_id: germany.id, description: "Berlin's favorite local burger joint.", user_id: user3.id, image_url: "https://berlinfoodstories.com/wp-content/uploads/2016/01/Burgermeister-Berlin-Venue_.jpg")
 loc4 = Location.create(name: "Sam's Noodle Station", country_id: usa.id, description: "A delicious restaurant serving handmade udon.", user_id: user1.id, image_url: "https://s3-media3.fl.yelpcdn.com/bphoto/4LOyKHxl1oRHnCg8RXB-lQ/o.jpg")
-loc5 = Location.create(name: "Non Nuoc Village", country_id: vietnam.id, description: "A quiet village close to the central city of Da Nang.", user_id: user4.id, image_url: "https://vi-pullzone-juw0eep8zpvcctq.netdna-ssl.com/wp-content/uploads/2018/03/Non-Nuoc-stone-carving-village.jpg")
+loc5 = Location.create(name: "Non Nuoc Village", country_id: vietnam.id, description: "A quiet village close to the central city of Da Nang.", user_id: user4.id, image_url: "http://static.asiawebdirect.com/m/bangkok/portals/vietnam/homepage/da-nang/shopping/non-nuoc-fine-arts-village/allParagraphs/BucketComponent/ListingContainer/00/image/non-nuoc-village-02.jpg")
 
 # Visits
 visit1 = Visit.create(user: user1, location: loc1, visit_date: "Dec 19 2000")
