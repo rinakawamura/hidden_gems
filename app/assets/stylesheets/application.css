@@ -31,11 +31,18 @@
   height: 500px;
 }
 
+<<<<<<< HEAD
+.container-text {
+  color: #8f9db8;
+  align: center;
+}
+=======
 .container-text h1 {
   color: #8f9db8;
   align: center;
 }
 
+>>>>>>> 1b53fd9855e81c0c9c2bc6f69708832cc227b0fa
 
 .fav-locations {
   position: relative;
