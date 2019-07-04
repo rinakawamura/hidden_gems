@@ -1,13 +1,22 @@
-<% if flash.now[:error] %>
-  <% flash.now[:error].each do |error_msg| %>
-    <li><%= error_msg %></li>
-  <% end %><br>
-<% end %>
+<div class="page-wrap" >
 
-<h1>Log In to Discover Hidden Gems!</h1><br>
-<%=form_tag '/sessions' do %>
-Email: <%= email_field_tag :email %><br><br>
-Password:<%= password_field_tag :password %><br><br>
-<%= submit_tag "login" %>
-<% end %>
+  <p class="error"><%= flash[:notice] %><p>
+  <h1>Log In to Discover Hidden Gems!</h1><br>
 
+  <% if flash.now[:error] %>
+    <% flash.now[:error].each do |error_msg| %>
+      <li class="error"><%= error_msg %></li>
+    <% end %><br>
+  <% end %>
+
+  <%=form_tag '/sessions' do %>
+  Email: <br><%= email_field_tag :email %><br><br>
+  Password: <br><%= password_field_tag :password %><br><br>
+  <%= submit_tag "Log In" %>
+  <% end %>
+
+  <br><br>
+
+  <p>Don't have an account? <%= link_to "Register Here", new_user_path %></p>
+
+</div>
