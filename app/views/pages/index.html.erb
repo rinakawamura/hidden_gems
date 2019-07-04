@@ -1,13 +1,13 @@
-<header class="main-header role="banner">
+<div class="main-header">
   <%= image_tag("banner1.jpg", class:"banner-image") %>
-  <h1 class="text">
-    <span class="logo"><b>Hidden Gems</b></span>
-  </h1>
-</header>
-
+  <h1 class="centered">Hidden Gems</h1>
+</div>
+<br>
+<br>
 <div class="page-wrap">
   <h2>Most Popular Locations</h2>
     <% Location.top_five_locations.each do |t| %>
       <div><%= link_to t.name, location_path(t) %></div>
+      <img src= <%= t.image_url %>>
     <% end %>
 </div>
