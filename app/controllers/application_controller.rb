@@ -5,7 +5,10 @@ class ApplicationController < ActionController::Base
   end
 
   def authorized
-    redirect_to '/login' unless logged_in?
+    if !logged_in? 
+      flash[:notice] = "Please log in first."
+      redirect_to '/login'
+    end
   end
 
   # def current_user

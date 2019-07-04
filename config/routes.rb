@@ -12,8 +12,8 @@ Rails.application.routes.draw do
   get '/login', to: 'sessions#new'
   post '/sessions', to: 'sessions#create'
   get '/home', to: 'pages#index'
-  delete "/logout", to: "sessions#destroy"
-  delete "/favorites/destroy/:user_id/:location_id", to: "favorites#destroy"
-  get "/favorites/new/:user_id/:location_id", to: "favorites#create"
+  delete '/logout', to: 'sessions#destroy'
+  delete '/favorites/destroy/:user_id/:location_id', to: 'favorites#destroy'
+  get '/favorites/new/:user_id/:location_id', to: 'favorites#create'
   
 end

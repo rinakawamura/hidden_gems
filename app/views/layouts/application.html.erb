@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html style="background-image: linear-gradient(#deeafc, #d9faff">
   <head>
     <title>HiddenGems</title>
     <%= csrf_meta_tags %>
@@ -14,12 +14,13 @@
 
     <nav class="nav-bar">
       <ul>
-        
+
         <li><%= link_to "Home", '/' %></li>
         <li><%= link_to "About", '/about' %></li>
         <li><%= link_to "Hidden Gem List", locations_path %></li>
 
         <% if session[:user_id] %>
+          <li><%= link_to "Search User", users_path %></li>
           <li class="right"><a href="#">Hi <%= User.find(session[:user_id]).full_name %></a>
             <ul class="dropdown">
               <li><%= link_to "My Page", "/users/#{session[:user_id]}" %></li>
@@ -36,8 +37,6 @@
         <% end %>
       </ul>
     </nav>
-  <br><br>
-
 
     <%= yield %>
   </body>

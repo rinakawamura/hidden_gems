@@ -1,15 +1,18 @@
 <div class="page-wrap" >
+
+  <p class="error"><%= flash[:notice] %><p>
+  <h1>Log In to Discover Hidden Gems!</h1><br>
+
   <% if flash.now[:error] %>
     <% flash.now[:error].each do |error_msg| %>
-      <li><%= error_msg %></li>
+      <li class="error"><%= error_msg %></li>
     <% end %><br>
   <% end %>
 
-  <h1>Log In to Discover Hidden Gems!</h1><br>
   <%=form_tag '/sessions' do %>
-  Email: <%= email_field_tag :email %><br><br>
-  Password:<%= password_field_tag :password %><br><br>
-  <%= submit_tag "login" %>
+  Email: <br><%= email_field_tag :email %><br><br>
+  Password: <br><%= password_field_tag :password %><br><br>
+  <%= submit_tag "Log In" %>
   <% end %>
 
   <br><br>
