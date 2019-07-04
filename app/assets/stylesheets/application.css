@@ -18,19 +18,19 @@ html {
 }
 
 .main-header h1 {
-  font-size: 40px;
-  color: purple;
-  padding: 3px;
-  opacity: 0.5;
+  font-size: 60px;
+  color: white;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: transparent;
 }
 
-img {
+.main-header img {
   width: 100%;
-  height: auto;
-  display: block;
-  padding-top: 0;
-  margin-top: 0;
-  align: top;
+  height: 500px;
+  object-fit: cover;
 }
 
 .main-header span {
@@ -55,7 +55,7 @@ img {
 
 .page-wrap h2 {
     padding: 0px;
-    color: white;
+    color: #000000;
     font-size: 30px;
 
 }

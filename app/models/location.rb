@@ -4,7 +4,7 @@ class Location < ApplicationRecord
     belongs_to :country
 
     validates :name, :description, :country_id, presence:true
-    validates :description, length: {maximum: 50}
+    validates :description, length: {maximum: 100}
 
     def owner
         User.all.find(self.user_id)
