@@ -13,7 +13,7 @@
       <h2>Hidden Gems Visited:</h2>
       <ul>
         <% @user.visits.each do |visit| %>
-        <li><%= link_to visit.location.name, location_path(visit.location) %> (<%= visit.visit_date %>)</li>
+        <li><%= link_to visit.location.name, location_path(visit.location) %> <br>(<%= visit.visit_date %>)</li>
           <% if session[:user_id] == @user.id %>
             <%= form_for visit, :method => :delete do |f| %>
               <%= f.submit "Remove Visit" %>

@@ -3,6 +3,7 @@
     padding: 0px;
     box-sizing: border-box;
     font-family: "Optima";
+    color: #8f9db8;
 }
 li {
   list-style: none;
@@ -42,20 +43,19 @@ html {
   padding-top: 40px;
   margin: auto;
   text-align: center;
-  font-size: 30px;
+  font-size: 20px;
   
 }
 
 .page-wrap h1 {
     padding: 0px;
     padding-bottom: 20px;
-    font-size: 1.7em;
-    color: #703CE9;
+    font-size: 50px;
+    color: #6b7da1;
 }
 
 .page-wrap h2 {
-    padding: 0px;
-    color: #000000;
+    padding: 10px;
     font-size: 30px;
 
 }
@@ -118,12 +118,31 @@ html {
     background: #b4adff;
 }
 
+
 input[type=submit] {
   width: 15em;  height: 3em;
   color: white;
   background-color: #a0e0ff;
   font-size: 15px;
   margin: 20px;
+}
+
+.favorite input[type=submit]{
+  background-color:white;
+  background-image: url("heart_unfilled.png");
+  background-repeat: no-repeat;
+	background-position: center;
+  background-size: 2em auto, 100%;
+  width: 2em; height: 2em;
+}
+
+.unfavorite input[type=submit]{
+  background-color:white;
+  background-image: url("heart_filled.png");
+  background-repeat: no-repeat;
+	background-position: center;
+  background-size: 1.7em auto, 100%;
+  width: 2em; height: 2em;
 }
 
 input[type=text], input[type=email], input[type=password]{
@@ -189,4 +208,16 @@ select {
 textarea {
   width: 350px;
   height: 100px;
+}
+
+.show-page img {
+  width: 65%;
+  height: auto;
+  margin-top: 20px;
+}
+
+.about p {
+  margin-top: 30px;
+  margin-left: 10%;
+  margin-right: 10%;
 }

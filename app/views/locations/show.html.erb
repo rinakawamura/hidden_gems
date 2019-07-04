@@ -2,21 +2,29 @@
     <h1><%= @location.name %></h1>
     <h2>Country: <%= @location.country.name%></h2>
     <p><%= @location.description %></p>
+
+    <div class="show-page">
+        <img src=<%=@location.image_url%>>
+    </div>
     <br>
     <h4>Favorites: <%= @location.fav_users.count %></h4> 
-
     <% if session[:user_id] %>
         <% if @location.favorite?(session[:user_id]) %>
-            <%= button_to "Unfavorite", "/favorites/destroy/#{session[:user_id]}/#{@location.id}", method: :delete %>
+            <div class="unfavorite">
+                <%= button_to "", "/favorites/destroy/#{session[:user_id]}/#{@location.id}", method: :delete, class: "unfavorite" %>
+            </div>
         <% else %>
-            <%= button_to "Favorite", "/favorites/new/#{session[:user_id]}/#{@location.id}", method: :get %>
-        <% end %>
+            <div class="favorite">
+                <%= button_to "", "/favorites/new/#{session[:user_id]}/#{@location.id}", method: :get%>
+            </div>
+            <% end %>
     <% end %>
-        
-    <br>
-    <br>
-    <h4>Hidden Gem Added By <%= link_to @location.owner.full_name, user_path(@location.owner) %></h4>
+
     <% if session[:user_id] == @location.owner.id %>
+        <h4>Hidden Gem Added By... You!</h4>
         <%= button_to "Edit Hidden Gem", edit_location_path, method: :get %>
+    <% else %>
+    <h4>Hidden Gem Added By <%= link_to @location.owner.full_name, user_path(@location.owner) %></h4>
     <% end %>
+
 </div>
