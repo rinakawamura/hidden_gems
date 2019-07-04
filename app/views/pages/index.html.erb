@@ -1,14 +1,32 @@
+<div class="main-header">
+ <%= image_tag("banner1.jpg", class:"banner-image") %>
+ <h1 class="centered">Hidden Gems</h1>
+</div>
+<br>
+<br>
 
-<header class="main-header role="banner">
-<%= image_tag("banner1.jpg", class:"banner-image") %>
-<h1 class="centered">Hidden Gems</h1>
-</div>
-<br>
-<br>
 <div class="page-wrap">
-<h2>Most Popular Locations</h2>
-  <% Location.top_five_locations.each do |t| %>
-    <div><%= link_to t.name, location_path(t) %></div>
-    <img src= <%= t.image_url %>>
-  <% end %>
+ <div class="container"
+  <div class="container-text">
+      <h1>Want a little taste?</h1>
+      <h1>Here are some of our users' favorite hidden gems!</h1>
+  </div>
+  <div class="container-image">
+    <%= image_tag("arrow.png") %>
+  </div>
+ </div>
+
+ <br>
+
+
+     <% Location.top_five_locations.each do |t| %>
+     <div class="fav-locations">
+       <img src= <%= t.image_url %>>
+       <div class="middle">
+         <div class="text"><%= link_to t.name, location_path(t) %></div>
+       </div>
+     </div>
+     <% end %>
+   </div>
 </div>
+
