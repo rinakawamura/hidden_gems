@@ -1,40 +1,14 @@
-<<<<<<< HEAD
-<div class="main-header">
-=======
-<<<<<<< HEAD
-<div class="main-header">
-=======
-
 
 <header class="main-header role="banner">
->>>>>>> a6ba990bf1e5386138afd0687af075630d0b6fe0
->>>>>>> parent of f0a3f69... css changes
-  <%= image_tag("banner1.jpg", class:"banner-image") %>
-  <h1 class="centered">Hidden Gems</h1>
+<%= image_tag("banner1.jpg", class:"banner-image") %>
+<h1 class="centered">Hidden Gems</h1>
 </div>
 <br>
 <br>
-
 <div class="page-wrap">
-  <div class="container"
-    <div class="container-text">
-        <h1>Want a little taste?</h1>
-        <h1>Here are some of our users' favorite hidden gems!</h1>
-    </div>
-  </div>
-
-
-  <!-- <h2>Most Popular Locations</h2> -->
-  <br>
-
-
-      <% Location.top_five_locations.each do |t| %>
-      <div class="fav-locations">
-        <img src= <%= t.image_url %>>
-        <div class="middle">
-          <div class="text"><%= link_to t.name, location_path(t) %></div>
-        </div>
-      </div>
-      <% end %>
-    </div>
+<h2>Most Popular Locations</h2>
+  <% Location.top_five_locations.each do |t| %>
+    <div><%= link_to t.name, location_path(t) %></div>
+    <img src= <%= t.image_url %>>
+  <% end %>
 </div>
