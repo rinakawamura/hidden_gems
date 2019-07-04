@@ -1,51 +1,51 @@
-<% if session[:user_id] == @user.id %>
-  <h1> My Page </h1>
-<% else %>
-  <h1><%= @user.full_name %></h1>
-<% end %>
+<div class="page-wrap" > 
+  <% if session[:user_id] == @user.id %>
+    <h1> My Page </h1>
+  <% else %>
+    <h1><%= @user.full_name %></h1>
+  <% end %>
 
-<br>
-<h2>Hidden Gems Visited:</h2>
-<ul>
-  <% @user.visits.each do |visit| %>
-  <li><%= link_to visit.location.name, location_path(visit.location) %> (<%= visit.visit_date %>)</li>
-    <% if session[:user_id] == @user.id %>
-      <%= form_for visit, :method => :delete do |f| %>
-      <%= f.submit "Remove Visit" %>
+  <br>
+  <h2>Hidden Gems Visited:</h2>
+  <ul>
+    <% @user.visits.each do |visit| %>
+    <li><%= link_to visit.location.name, location_path(visit.location) %> (<%= visit.visit_date %>)</li>
+      <% if session[:user_id] == @user.id %>
+        <%= form_for visit, :method => :delete do |f| %>
+        <%= f.submit "Remove Visit" %>
+        <% end %>
       <% end %>
     <% end %>
+  </ul>
+
+  <% if session[:user_id] == @user.id %>
+    <h3>Add Visit</h3>
+    <%= form_for @visit do |f| %>
+      <%= f.collection_select :location_id, Location.all, :id, :name %>
+      <%= f.hidden_field :user_id, value: @user.id %>
+      <%= f.date_select :visit_date %>
+      <%= f.submit "Add Visit" %>
+    <% end %>
   <% end %>
-</ul>
 
-<% if session[:user_id] == @user.id %>
-  <h3>Add Visit</h3>
-  <%= form_for @visit do |f| %>
-    <%= f.collection_select :location_id, Location.all, :id, :name %>
-    <%= f.hidden_field :user_id, value: @user.id %>
-    <%= f.date_select :visit_date %>
-    <%= f.submit "Add Visit" %>
+  <br>
+  <h2>My Favorite Hidden Gems:</h2>
+  <ul>
+    <% @user.fav_locations.each do |fav_location| %>
+      <li><%= link_to fav_location.name, location_path(fav_location) %></li>
+    <% end %>
+  </ul>
+  <br>
+
+  <h2>Add a Gem:</h2>
+  <ul>
+    <% @user.added_locations.each do |location| %>
+    <li><%= link_to location.name, location_path(location) %></li>
+    <% end %>
+  </ul>
+
+  <% if session[:user_id] == @user.id %>
+    <%= button_to "Add Hidden Gem", new_location_path, method: :get %>
   <% end %>
-<% end %>
 
-<br>
-<h2>My Favorite Hidden Gems:</h2>
-<ul>
-  <% @user.fav_locations.each do |fav_location| %>
-    <li><%= link_to fav_location.name, location_path(fav_location) %></li>
-  <% end %>
-</ul>
-<br>
-
-<h2>Add a Gem:</h2>
-<ul>
-  <% @user.added_locations.each do |location| %>
-  <li><%= link_to location.name, location_path(location) %></li>
-  <% end %>
-</ul>
-
-<% if session[:user_id] == @user.id %>
-  <%= button_to "Add Hidden Gem", new_location_path, method: :get %>
-<% end %>
-
-
-<%# show friends %>
+</div>

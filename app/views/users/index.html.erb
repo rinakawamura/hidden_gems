@@ -1,12 +1,14 @@
-<h1>Search for User by Email</h1>
-<%= form_tag users_path, method: :get do %>
-    <%= text_field_tag :q %>
-    <%= submit_tag "Search" %>
-<% end %>
+<div class="page-wrap" >
+    <h1>Search for User by Email</h1>
+    <%= form_tag users_path, method: :get do %>
+        <%= text_field_tag :q %>
+        <%= submit_tag "Search" %>
+    <% end %>
 
-<br><br>
-<% if @user %>
-    <%= link_to @user.full_name, user_path(@user) %>
-<% else %>
-    No user with that email...
-<% end %>
+    <br><br>
+    <% if @user %>
+        <%= link_to @user.full_name, user_path(@user) %>
+    <% else %>
+        No user with that email...
+    <% end %>
+</div>
