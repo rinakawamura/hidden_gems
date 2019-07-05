@@ -18,7 +18,7 @@ user5 = User.create(first_name: "Faith", last_name: "Chen", country_id: Country.
 
 
 # Locations
-loc1 = Location.create(name: "Shakespeare and Company", country_id: Country.find_by(name: "France").id, description: "https://s26162.pcdn.co/wp-content/uploads/2015/11/shake-and-co.jpg")
+loc1 = Location.create(name: "Shakespeare and Company", country_id: Country.find_by(name: "France").id, description: "The perfect bookstore and cafe to enjoy a good cup of coffee.", user_id: user1.id, image_url: "https://s26162.pcdn.co/wp-content/uploads/2015/11/shake-and-co.jpg")
 loc2 = Location.create(name: "Holybelly", country_id: Country.find_by(name: "France").id, description: "A must-vist cafe in Paris for brunch.", user_id: user1.id, image_url: "https://www.jeffontheroad.com/wp-content/uploads/2016/06/dezjeff-paris-dejeuner-holybelly-7.jpg")
 loc3 = Location.create(name: "Burgermeister", country_id: Country.find_by(name: "Germany").id, description: "Berlin's favorite local burger joint.", user_id: user3.id, image_url: "https://berlinfoodstories.com/wp-content/uploads/2016/01/Burgermeister-Berlin-Venue_.jpg")
 loc4 = Location.create(name: "Sam's Noodle Station", country_id: Country.find_by(name: "United States").id, description: "A delicious restaurant serving handmade udon.", user_id: user1.id, image_url: "https://s3-media3.fl.yelpcdn.com/bphoto/4LOyKHxl1oRHnCg8RXB-lQ/o.jpg")
