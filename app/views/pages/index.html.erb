@@ -21,7 +21,7 @@
 
      <% Location.top_five_locations.each do |t| %>
      <div class="fav-locations">
-       <img src= <%= t.image_url %>>
+       <%= image_tag t.image_url %>
        <div class="middle">
          <div class="text"><%= link_to t.name, location_path(t) %></div>
        </div>
@@ -29,4 +29,3 @@
      <% end %>
    </div>
 </div>
-
