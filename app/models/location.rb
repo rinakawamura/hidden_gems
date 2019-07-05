@@ -21,7 +21,7 @@ class Location < ApplicationRecord
     def self.top_five_locations
         Location.all.sort_by do |loc|
           loc.fav_users.count
-        end.reverse[0..5]
+        end.reverse[0..4]
     end
 
     def favorite?(user_id)

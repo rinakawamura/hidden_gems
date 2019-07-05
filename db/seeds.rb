@@ -23,6 +23,12 @@ loc2 = Location.create(name: "Holybelly", country_id: Country.find_by(name: "Fra
 loc3 = Location.create(name: "Burgermeister", country_id: Country.find_by(name: "Germany").id, description: "Berlin's favorite local burger joint.", user_id: user3.id, image_url: "https://berlinfoodstories.com/wp-content/uploads/2016/01/Burgermeister-Berlin-Venue_.jpg")
 loc4 = Location.create(name: "Sam's Noodle Station", country_id: Country.find_by(name: "United States").id, description: "A delicious restaurant serving handmade udon.", user_id: user1.id, image_url: "https://s3-media3.fl.yelpcdn.com/bphoto/4LOyKHxl1oRHnCg8RXB-lQ/o.jpg")
 loc5 = Location.create(name: "Non Nuoc Village", country_id: Country.find_by(name: "Vietnam").id, description: "A quiet village close to the central city of Da Nang.", user_id: user4.id, image_url: "http://static.asiawebdirect.com/m/bangkok/portals/vietnam/homepage/da-nang/shopping/non-nuoc-fine-arts-village/allParagraphs/BucketComponent/ListingContainer/00/image/non-nuoc-village-02.jpg")
+loc6 = Location.create(name: "Kusatsu Onsen", country_id: Country.find_by(name: "Japan").id, description: "A steaming, gushing, natural hot spring resort.", user_id: user5.id, image_url: "https://cdn-images-1.medium.com/max/1600/1*PxmYu3Nxfniw4zlu3PUGvA.jpeg")
+loc7 = Location.create(name: "Cushing Center", country_id: Country.find_by(name: "United States").id, description: "This museum at the Yale Med School is a brainiac's dream come true.", image_url: "https://lifeabsorbed.files.wordpress.com/2012/01/img_7989.jpg")
+loc8 = Location.create(name: "Minoh Waterfall", country_id: Country.find_by(name: "Japan").id, description: "Snack on fried Japanese maple leaves on your trek up to the beautiful waterfall.", image_url: "https://www.japan-guide.com/g18/4019_02.jpg")
+loc9 = Location.create(name: "The Cauldron", country_id: Country.find_by(name: "United States").id, description: "Live out your Harry Potter dreams in this magical pub.", image_url: "https://static1.squarespace.com/static/578235d2c534a5d68f2335fd/5a159007c83025aa86b9fd4f/5a15900af9619afa6a9d66ba/1511363996741/IMG_2806.jpg")
+loc10 = Location.create(name: "The Astrology Shop", country_id: Country.find_by(name: "United Kingdom").id, description: "Crystals, tarot cards, personal horoscopes, what more do you need?", image_url: "https://media.timeout.com/images/104010773/630/472/image.jpg")
+
 
 # Visits
 visit1 = Visit.create(user: user1, location: loc1, visit_date: "Dec 19 2000")

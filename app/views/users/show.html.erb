@@ -10,7 +10,7 @@
   <div class="column">
 
     <div class="block">
-      <h2>Hidden Gems Visited:</h2>
+      <h2>Hidden Gems Visited:</h2><br>
       <ul>
         <% @user.visits.each do |visit| %>
         <li><%= link_to visit.location.name, location_path(visit.location) %> <br>(<%= visit.visit_date %>)</li>
@@ -27,7 +27,7 @@
         <%= form_for @visit do |f| %>
           <%= f.collection_select :location_id, Location.all, :id, :name %>
           <%= f.hidden_field :user_id, value: @user.id %>
-          <%= f.date_select :visit_date %>
+          <%= f.date_select :visit_date %><br>
           <%= f.submit "Add Visit" %>
         <% end %>
       <% end %>
@@ -36,40 +36,42 @@
     <br>
 
     <div class="block">
-      <% if session[:user_id] == @user.id %>
-        <h2>My Favorite Hidden Gems</h2>
-      <% else %>
-        <h2> <%=@user.full_name%>'s Favorite Gems </h2>
-      <% end %>
+      <div class="block-2">
+        <% if session[:user_id] == @user.id %>
+          <h2>My Favorite Hidden Gems</h2>
+        <% else %>
+          <h2> <%=@user.full_name%>'s Favorite Gems </h2>
+        <% end %>
 
-      <% if @user.fav_locations.empty? %>
-        <p>No Favorite Gems :(</p>
-      <% else %>
+        <% if @user.fav_locations.empty? %>
+          <p>No Favorite Gems :(</p>
+        <% else %>
+          <ul>
+            <% @user.fav_locations.each do |fav_location| %>
+              <li><%= link_to fav_location.name, location_path(fav_location) %></li>
+            <% end %>
+          </ul>
+        <% end %>
+      </div>
+      <br>
+
+      <div class="block-2">
+        <% if session[:user_id] == @user.id %>
+          <h2>Gems Introduced</h2>
+        <% else %>
+          <h2>Gems Introduced by <%=@user.full_name%></h2>
+        <% end %>
+
         <ul>
-          <% @user.fav_locations.each do |fav_location| %>
-            <li><%= link_to fav_location.name, location_path(fav_location) %></li>
+          <% @user.added_locations.each do |location| %>
+            <li><%= link_to location.name, location_path(location) %></li>
           <% end %>
         </ul>
-      <% end %>
-    </div>
-    <br>
 
-    <div class="block">
-      <% if session[:user_id] == @user.id %>
-        <h2>Gems Introduced</h2>
-      <% else %>
-        <h2>Gems Introduced by <%=@user.full_name%></h2>
-      <% end %>
-
-      <ul>
-        <% @user.added_locations.each do |location| %>
-          <li><%= link_to location.name, location_path(location) %></li>
+        <% if session[:user_id] == @user.id %>
+          <%= button_to "Introduce A Hidden Gem", new_location_path, method: :get %>
         <% end %>
-      </ul>
-
-      <% if session[:user_id] == @user.id %>
-        <%= button_to "Introduce A Hidden Gem", new_location_path, method: :get %>
-      <% end %>
+      </div>
     </div>
   </div>
 </div>
