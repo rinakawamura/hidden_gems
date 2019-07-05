@@ -4,7 +4,12 @@
     <p><%= @location.description %></p>
 
     <div class="show-page">
-        <img src=<%=@location.image_url%>>
+
+        <% if @location.image_url %>
+            <%= image_tag @location.image_url %>
+        <% else %>
+            <%= image_tag("no-image.png") %>
+        <% end %>
     </div>
     <br>
     <h4>Favorites: <%= @location.fav_users.count %></h4> 

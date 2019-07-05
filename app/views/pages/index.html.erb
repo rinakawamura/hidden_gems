@@ -18,14 +18,18 @@
 
  <br>
 
+    <% Location.top_five_locations.each do |t| %>
+      <div class="fav-locations">
+        <% if t.image_url %>
+          <%= image_tag t.image_url %>
+        <% else %>
+          <%= image_tag("no-image.png") %>
+        <% end %>
+        <div class="middle">
+          <div class="text"><%= link_to t.name, location_path(t) %></div>
+        </div>
+      </div>
+    <% end %>
 
-     <% Location.top_five_locations.each do |t| %>
-     <div class="fav-locations">
-       <%= image_tag t.image_url %>
-       <div class="middle">
-         <div class="text"><%= link_to t.name, location_path(t) %></div>
-       </div>
-     </div>
-     <% end %>
-   </div>
+  </div>
 </div>
